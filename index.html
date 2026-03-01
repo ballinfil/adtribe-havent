@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdTribe Haven | White-Label Media Buying for Growing Agencies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4d65ff;
+            --primary-hover: #3a4ecc;
+            --primary-light: #eef0ff;
+            --bg: #ffffff;
+            --bg-alt: #f7f8fc;
+            --text: #1a1a2e;
+            --text-muted: #6b7280;
+            --text-light: #9ca3af;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --radius-lg: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links .btn-nav {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.55rem 1.25rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .nav-links .btn-nav:hover {
+            background: var(--primary-hover);
+            color: #fff;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .bg-alt {
+            background: var(--bg-alt);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 7rem 2rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 780px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+            font-weight: 700;
+            line-height: 1.12;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero .hero-sub {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-features li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .hero-features li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        /* Hero Social Proof */
+        .hero-proof {
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-proof p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-logos {
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .hero-logos-track {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+
+        .hero-logos-track:hover {
+            animation-play-state: paused;
+        }
+
+        .hero-logos-track span {
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+            opacity: 0.35;
+            white-space: nowrap;
+            transition: opacity 0.3s;
+        }
+
+        .hero-logos-track span:hover {
+            opacity: 0.7;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .hero-stat span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 5rem 2rem;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .problem-side h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .problem-side p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .problem-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .problem-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .problem-list li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        .solution-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .solution-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .solution-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .comparison-table .col-alt {
+            color: var(--text-muted);
+        }
+
+        .comparison-table .col-haven {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--bg);
+        }
+
+        /* How It Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .price-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            position: relative;
+        }
+
+        .price-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px var(--primary);
+        }
+
+        .price-card-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        .price-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .price-card .platforms {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .price-amount span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .price-card li {
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .price-card li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .price-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.25rem 0;
+            background: none;
+            border: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            transition: transform 0.2s;
+        }
+
+        .faq-item.open .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            display: none;
+            padding-bottom: 1.25rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--primary);
+            border-radius: 24px;
+            padding: 4rem 2.5rem;
+            color: #fff;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-box .btn {
+            background: #fff;
+            color: var(--primary);
+        }
+
+        .cta-box .btn:hover {
+            background: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-top {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 280px;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--text);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.85rem 1.25rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .hero {
+                padding: 6rem 1.25rem 3.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .features-grid,
+            .pricing-grid,
+            .testimonials-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-box {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">AdTribe <span>Haven</span></div>
+        <ul class="nav-links">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#cta" class="btn-nav">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero (AIDA: Attention → Interest → Desire → Action) -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Attention: bold claim that stops the scroll -->
+            <h1>Build Your Media Buying Team for <span class="highlight">65% Less</span></h1>
+            <!-- Interest: explain the how, address the pain -->
+            <p class="hero-sub">Stop overpaying agencies or gambling on junior hires. We plug senior media buyers (5+ years experience) straight into your team — starting at just $799/mo per account.</p>
+            <!-- Desire: proof points that build confidence -->
+            <ul class="hero-features">
+                <li>Senior-only talent (5+ years)</li>
+                <li>Live on your accounts in 1 week</li>
+                <li>Pause or scale anytime</li>
+            </ul>
+            <!-- Action: clear CTAs -->
+            <div class="cta-group">
+                <a href="#cta" class="btn btn-primary">Book a Call</a>
+                <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+            </div>
+            <!-- Social proof baked into hero -->
+            <div class="hero-proof">
+                <p>Trusted by agencies managing over $100M in ad spend</p>
+                <div class="hero-logos">
+                    <div class="hero-logos-track">
+                        <!-- First set -->
+                        <span>FollowSpike</span>
+                        <span>Marccx Media</span>
+                        <span>StoryResponse</span>
+                        <span>GrowthLab</span>
+                        <span>ScaleHQ</span>
+                        <span>AdVenture Co</span>
+                        <span>ClickForge</span>
+                        <span>MediaCo</span>
+                        <!-- Duplicate for seamless loop -->
+                        <span>FollowSpike</span>
+                        <span>Marccx Media</span>
+                        <span>StoryResponse</span>
+                        <span>GrowthLab</span>
+                        <span>ScaleHQ</span>
+                        <span>AdVenture Co</span>
+                        <span>ClickForge</span>
+                        <span>MediaCo</span>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <strong>65%</strong>
+                        <span>Avg. cost savings</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>5+ yrs</strong>
+                        <span>Buyer experience</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>48 hrs</strong>
+                        <span>Replacement guarantee</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>100+</strong>
+                        <span>Agency partners</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="bg-alt" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything your agency needs to scale</h2>
+                <p>Senior media buyers, creative strategy, and full campaign management — all included.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F3AF;</div>
+                    <h3>Full Campaign Management</h3>
+                    <p>From research and strategy to launch and optimization. We manage your client campaigns end-to-end across Meta, Google, TikTok, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F3A8;</div>
+                    <h3>Creative Strategy &amp; Testing</h3>
+                    <p>12+ static ads per month with ongoing creative testing. We handle briefs, iterations, and performance analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F4CA;</div>
+                    <h3>Weekly Performance Updates</h3>
+                    <p>Every Monday, you get a full report on performance, what we tested, and what's coming next. No chasing updates.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F4AC;</div>
+                    <h3>Daily Slack Communication</h3>
+                    <p>Your dedicated team is one message away. Real-time communication Monday through Friday via a shared Slack channel.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F4C8;</div>
+                    <h3>Tracking &amp; Analytics Setup</h3>
+                    <p>GA4, GTM, conversion tracking, and attribution — we set it all up so your campaigns are properly measured from day one.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#x26A1;</div>
+                    <h3>Pause or Scale Anytime</h3>
+                    <p>No long-term contracts. Add more accounts when you win new clients, or pause when you need to. Total flexibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Solution -->
+    <section class="problem-section" id="problem">
+        <div class="problem-grid">
+            <div class="problem-side">
+                <h2>Hiring great media buyers is hard</h2>
+                <p>Every growing agency hits the same wall. You need media buyers to scale, but finding good ones feels impossible.</p>
+                <ul class="problem-list">
+                    <li>Top performers are rare and get poached fast</li>
+                    <li>Vetting and interviewing takes months</li>
+                    <li>Training costs $10K+ before they're productive</li>
+                    <li>One bad hire sets your clients back weeks</li>
+                </ul>
+            </div>
+            <div class="problem-side">
+                <h2>It doesn't have to be</h2>
+                <p>We spent 7 years perfecting our hiring process — testing, training, and keeping only the top 3%. Now you skip straight to the results.</p>
+                <ul class="solution-list">
+                    <li>Hand-picked senior buyers, pre-vetted and ready</li>
+                    <li>Onboarded and delivering results in 1 week</li>
+                    <li>Not working out? Replaced within 48 hours</li>
+                    <li>No contracts — pause or scale month to month</li>
+                </ul>
+                <a href="#cta" class="btn btn-primary">Book a Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="bg-alt" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why agencies choose Haven over hiring in-house</h2>
+                <p>The numbers speak for themselves.</p>
+            </div>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Hiring In-House</th>
+                            <th>AdTribe Haven</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monthly Cost</td>
+                            <td class="col-alt">$6,000 – $8,000</td>
+                            <td class="col-haven">Starting at $799/account</td>
+                        </tr>
+                        <tr>
+                            <td>Flexibility</td>
+                            <td class="col-alt">Locked into contracts</td>
+                            <td class="col-haven">Pause or scale anytime</td>
+                        </tr>
+                        <tr>
+                            <td>Experience Level</td>
+                            <td class="col-alt">Usually junior or mid-level</td>
+                            <td class="col-haven">Senior buyers (5+ years)</td>
+                        </tr>
+                        <tr>
+                            <td>Scalability</td>
+                            <td class="col-alt">Slow and resource-heavy</td>
+                            <td class="col-haven">Scale up instantly</td>
+                        </tr>
+                        <tr>
+                            <td>Onboarding Time</td>
+                            <td class="col-alt">4–6 weeks to hire and train</td>
+                            <td class="col-haven">1 week</td>
+                        </tr>
+                        <tr>
+                            <td>Performance Risk</td>
+                            <td class="col-alt">Stuck with bad hires</td>
+                            <td class="col-haven">Replace in 48 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Time to Results</td>
+                            <td class="col-alt">2–3 months training</td>
+                            <td class="col-haven">Delivering results week 1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="bg-alt" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How it works</h2>
+                <p>From first call to live campaigns in under a week.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery call</h3>
+                    <p>We hop on a quick call to understand your needs, your clients, and how many accounts you need help with.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Agreement &amp; expectations</h3>
+                    <p>Once we're aligned, we send over a simple agreement that outlines everything clearly. No surprises.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Meet your media buying team</h3>
+                    <p>We add you to Slack and introduce your dedicated team. These are the people working on your accounts every day.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Onboarding &amp; launch</h3>
+                    <p>We handle account access, tracking setup, research, creative briefs, and initial campaigns. Takes about a week.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Weekly updates &amp; optimization</h3>
+                    <p>Every Monday, you get a full update on performance, what we tested, and what's coming next. Ongoing optimization from there.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get a senior media buyer your clients will love</h2>
+                <p>Simple, transparent pricing. No hidden fees.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Paid Social</h3>
+                    <p class="platforms">Meta, TikTok, Pinterest</p>
+                    <div class="price-amount">$799 <span>/mo</span></div>
+                    <p class="price-note">per ad account</p>
+                    <ul>
+                        <li>Marketing research &amp; strategy</li>
+                        <li>12 static ads per month</li>
+                        <li>Campaign management</li>
+                        <li>Creative strategy &amp; testing</li>
+                        <li>Weekly performance updates</li>
+                        <li>Monthly reports</li>
+                        <li>Daily Slack communication</li>
+                        <li>Pause or scale anytime</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-card-badge">Most Popular</div>
+                    <h3>Paid Social + Search</h3>
+                    <p class="platforms">Any social and search platform</p>
+                    <div class="price-amount">$1,399 <span>/mo</span></div>
+                    <p class="price-note">one client, two ad accounts</p>
+                    <ul>
+                        <li>Full-funnel strategy</li>
+                        <li>8 static + 2 video creatives/month</li>
+                        <li>Cross-channel campaign management</li>
+                        <li>1 monthly strategy call</li>
+                        <li>Weekly performance updates</li>
+                        <li>Monthly reports</li>
+                        <li>Daily Slack communication</li>
+                        <li>Pause or scale anytime</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="price-card">
+                    <h3>Paid Search</h3>
+                    <p class="platforms">Google, YouTube, Bing</p>
+                    <div class="price-amount">$799 <span>/mo</span></div>
+                    <p class="price-note">per ad account</p>
+                    <ul>
+                        <li>Keyword research &amp; strategy</li>
+                        <li>GA4 and GTM setup</li>
+                        <li>Campaign management</li>
+                        <li>Shopping campaign setup</li>
+                        <li>Weekly performance updates</li>
+                        <li>Monthly reports</li>
+                        <li>Daily Slack communication</li>
+                        <li>Pause or scale anytime</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-alt" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What agency owners say about working with us</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <blockquote>"We outsourced our media buying to Haven and cut our labor costs by 65%. The quality of work has been consistently excellent."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">KF</div>
+                        <div>
+                            <div class="testimonial-name">Kevin Fedor</div>
+                            <div class="testimonial-role">FollowSpike</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"Haven has been our trusted partner for 5 years. Would never hire a media buyer in-house again. It just doesn't make sense."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MP</div>
+                        <div>
+                            <div class="testimonial-name">Michael Peggs</div>
+                            <div class="testimonial-role">Marccx Media</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"Love the attention to detail and communication. And the results speak for themselves — our clients are thrilled."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">KB</div>
+                        <div>
+                            <div class="testimonial-name">Kory Basaraba</div>
+                            <div class="testimonial-role">StoryResponse Media</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <button class="faq-question">What's your capacity?</button>
+                    <div class="faq-answer">Currently, we can onboard up to 5 agencies each month. We keep capacity limited so every partner gets the attention they deserve.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How does billing work?</button>
+                    <div class="faq-answer">We send a single invoice on the 1st of each month, covering all accounts under our management. Simple and predictable.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What niches do you work with?</button>
+                    <div class="faq-answer">We work with e-commerce, local lead generation, and e-learning businesses. We don't work with gambling, dating, or other niches restricted from advertising.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is there a minimum required ad spend?</button>
+                    <div class="faq-answer">We require accounts under our management to spend at least $3,000 per month, unless it's a local lead gen account.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do we communicate with your team?</button>
+                    <div class="faq-answer">All communication is via Slack, Monday through Friday. You'll have a dedicated channel with your media buying team.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can you help with audits?</button>
+                    <div class="faq-answer">Yes, we offer paid audits for our partners at a fixed rate of $250 per audit. If you close the account, we'll deduct that from the monthly retainer.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Why not just hire my own team?</button>
+                    <div class="faq-answer">You can — but managing a team is tough. Hiring, training, retention, and performance management all take time and money. With Haven, that's all handled for you with zero headaches.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section" id="cta">
+        <div class="cta-box">
+            <h2>Say goodbye to bad media buyer hires</h2>
+            <p>Book a short call and we'll walk you through how everything works. Your senior media buyers could be live on accounts by next week.</p>
+            <a href="#" class="btn">Book a Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo">AdTribe <span>Haven</span></div>
+                <p>White-label media buying for growing agencies. Senior talent, transparent pricing, zero headaches.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="#cta">Book a Call</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter / X</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AdTribe Haven. All rights reserved.</p>
+            <p>New York &amp; Kyiv</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = this.parentElement;
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.classList.remove('open');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
