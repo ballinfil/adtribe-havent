@@ -329,59 +329,122 @@
             position: relative;
         }
 
-        .hero-illustration-graphic {
+        .candidate-cards {
+            position: relative;
             width: 100%;
-            max-width: 400px;
-            aspect-ratio: 1;
-            background: var(--light-pink);
+            max-width: 340px;
+            height: 320px;
+        }
+
+        .candidate-card {
+            position: absolute;
+            width: 100%;
+            background: var(--white-cream);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            box-shadow: 0 4px 24px rgba(8, 59, 25, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .candidate-card.card-back {
+            top: 0;
+            left: 0;
+            transform: rotate(-4deg) scale(0.92);
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .candidate-card.card-mid {
+            top: 10px;
+            left: 10px;
+            transform: rotate(-1.5deg) scale(0.96);
+            z-index: 2;
+            opacity: 0.8;
+        }
+
+        .candidate-card.card-front {
+            top: 20px;
+            left: 20px;
+            transform: rotate(1deg);
+            z-index: 3;
+        }
+
+        .candidate-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .candidate-avatar {
+            width: 42px;
+            height: 42px;
+            background: var(--dark-green);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
         }
 
-        .hero-illustration-graphic .stat-bubble {
-            position: absolute;
-            background: var(--white-cream);
-            border-radius: var(--radius-sm);
-            padding: 1rem 1.25rem;
-            box-shadow: 0 4px 20px rgba(8, 59, 25, 0.08);
-            font-size: 0.85rem;
+        .candidate-name {
             font-weight: 600;
+            font-size: 0.95rem;
             color: var(--text-primary);
         }
 
-        .hero-illustration-graphic .stat-bubble.top-left {
-            top: 10%;
-            left: -10%;
-        }
-
-        .hero-illustration-graphic .stat-bubble.top-right {
-            top: 5%;
-            right: -5%;
-        }
-
-        .hero-illustration-graphic .stat-bubble.bottom-left {
-            bottom: 15%;
-            left: -5%;
-        }
-
-        .hero-illustration-graphic .stat-bubble.bottom-right {
-            bottom: 10%;
-            right: -10%;
-        }
-
-        .stat-bubble strong {
-            display: block;
-            font-size: 1.5rem;
-            color: var(--dark-green);
-        }
-
-        .stat-bubble span {
-            font-size: 0.75rem;
+        .candidate-title {
+            font-size: 0.78rem;
             color: var(--faded-green);
-            font-weight: 400;
+        }
+
+        .vetted-badge {
+            margin-left: auto;
+            background: #d4edda;
+            color: var(--dark-green);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .candidate-skills {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--light-pink);
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+        }
+
+        .candidate-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-alpha);
+            font-size: 0.82rem;
+        }
+
+        .candidate-stat span {
+            color: var(--faded-green);
+        }
+
+        .candidate-stat strong {
+            color: var(--dark-green);
+            font-size: 0.9rem;
         }
 
         /* Social Proof Bar */
@@ -1089,22 +1152,62 @@
                 </div>
             </div>
             <div class="hero-illustration">
-                <div class="hero-illustration-graphic">
-                    <div class="stat-bubble top-left">
-                        <strong>65%</strong>
-                        <span>Avg. cost savings</span>
+                <div class="candidate-cards">
+                    <div class="candidate-card card-back">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">OL</div>
+                            <div>
+                                <div class="candidate-name">Olena L.</div>
+                                <div class="candidate-title">Senior Media Buyer</div>
+                            </div>
+                            <span class="vetted-badge">Vetted</span>
+                        </div>
+                        <div class="candidate-skills">
+                            <span class="skill-tag">Meta</span>
+                            <span class="skill-tag">TikTok</span>
+                        </div>
+                        <div class="candidate-stat">
+                            <span>Experience</span>
+                            <strong>7 years</strong>
+                        </div>
                     </div>
-                    <div class="stat-bubble top-right">
-                        <strong>5+ yrs</strong>
-                        <span>Buyer experience</span>
+                    <div class="candidate-card card-mid">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">DK</div>
+                            <div>
+                                <div class="candidate-name">Dmytro K.</div>
+                                <div class="candidate-title">Senior Media Buyer</div>
+                            </div>
+                            <span class="vetted-badge">Vetted</span>
+                        </div>
+                        <div class="candidate-skills">
+                            <span class="skill-tag">Google</span>
+                            <span class="skill-tag">YouTube</span>
+                            <span class="skill-tag">Bing</span>
+                        </div>
+                        <div class="candidate-stat">
+                            <span>Experience</span>
+                            <strong>9 years</strong>
+                        </div>
                     </div>
-                    <div class="stat-bubble bottom-left">
-                        <strong>48 hrs</strong>
-                        <span>Replacement guarantee</span>
-                    </div>
-                    <div class="stat-bubble bottom-right">
-                        <strong>100+</strong>
-                        <span>Agency partners</span>
+                    <div class="candidate-card card-front">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">AS</div>
+                            <div>
+                                <div class="candidate-name">Anna S.</div>
+                                <div class="candidate-title">Senior Media Buyer</div>
+                            </div>
+                            <span class="vetted-badge">Vetted</span>
+                        </div>
+                        <div class="candidate-skills">
+                            <span class="skill-tag">Meta</span>
+                            <span class="skill-tag">Google</span>
+                            <span class="skill-tag">TikTok</span>
+                        </div>
+                        <div class="candidate-stat">
+                            <span>Experience</span>
+                            <strong>6 years</strong>
+                        </div>
                     </div>
                 </div>
             </div>
